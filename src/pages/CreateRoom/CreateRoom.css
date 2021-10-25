@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.create-room {
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.create-room h2 {
+  margin-bottom: 5%;
+}
+.form-select {
+  padding: 10px 5px;
+  font-size: 18px;
+  outline: none;
+}
+.button {
+  align-self: center;
+}
+option {
+  padding: 10px;
+  font-size: 18px;
+}

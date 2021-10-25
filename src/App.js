@@ -7,11 +7,9 @@ import NotFound from "./pages/404/NotFound";
 import JoinRoom from "./pages/JoinRoom/JoinRoom";
 import CreateRoom from "./pages/createRoom/CreateRoom";
 
-
 function App() {
   return (
     <div className="App">
-
       <Switch>
         <Route exact path="/" component={Home} />
 

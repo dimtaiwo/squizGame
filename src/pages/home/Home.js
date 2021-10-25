@@ -1,10 +1,10 @@
 import Button from "../../components/UI/Button/Button";
 import Title from "../../components/UI/Title/Title";
 import { Link } from "react-router-dom";
-import styled, { keyframes } from 'styled-components'
-import BackButton from '../../components/UI/BackButton/BackButton'
+import styled, { keyframes } from "styled-components";
+import BackButton from "../../components/UI/BackButton/BackButton";
+import frontmanMask from "../../components/assets/fontman-mask.png";
 import "./Home.css";
-import frontmanMask from "../../components/assets/fontman-mask.png"
 
 // Create the keyframes
 const rotate = keyframes`
@@ -18,12 +18,11 @@ const rotate = keyframes`
 `;
 
 const Rotate = styled.div`
-display: inline-block;
-animation: ${rotate} 1.5s linear;
-padding: 2rem 1rem;
-font-size: 1.2rem;
+  display: inline-block;
+  animation: ${rotate} 1.5s linear;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
 `;
-
 
 export default function Home() {
   document.title = "Squiz Game";
@@ -41,7 +40,14 @@ export default function Home() {
         <Button value="Leaderboard" type="button" />
       </Link>
       <BackButton />
-      <Rotate><img className="frontman-mask" src={frontmanMask} alt="" width="100px" /></Rotate>
+      <Rotate>
+        <img
+          className="frontman-mask"
+          src={frontmanMask}
+          alt=""
+          width="100px"
+        />
+      </Rotate>
     </div>
   );
 }
