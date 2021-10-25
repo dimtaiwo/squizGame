@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import ScoreCard from "../../components/score/ScoreCard";
 import ScoreFilter from "../../components/score/ScoreFilter";
@@ -22,15 +22,13 @@ export default function Leaderboard() {
     const [filteredData, setFilteredData] = useState(scoreData);
 
 
-    const filterData = (topic) => {
+    const filterData = (topic, difficulty) => {
         scoreData.sort(sortFunction);
 
-        // if (topic === "all") {
-        //     setFilteredData(scoreData);
-        //     return;
-        // }
+        const filteredByTopic = scoreData.filter(score => score.topic === topic || topic === "all");
+        const filteredByDifficulty = filteredByTopic.filter(score => score.difficulty === difficulty || difficulty === "all");
 
-        setFilteredData(scoreData.filter(score => score.topic === topic || topic === "all"));
+        setFilteredData(filteredByDifficulty);
     };
 
     return (
@@ -39,7 +37,7 @@ export default function Leaderboard() {
             <ScoreFilter data={scoreData} filterData={filterData} />
 
             <div className="scores">
-                {filteredData.map((score, i) => <ScoreCard rank={i + 1} key={score.id} name={score.name} topic={score.topic} score={score.score} />)}
+                {filteredData.map((score, i) => <ScoreCard rank={i + 1} key={score.id} name={score.name} topic={score.topic} difficulty={score.difficulty} score={score.score} />)}
             </div>
         </div>
     );
