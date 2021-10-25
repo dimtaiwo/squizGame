@@ -11,7 +11,7 @@
     padding: 15px 0px;
 }
 
-@media only screen and (max-width: 576px) {
+/* @media only screen and (max-width: 576px) {
     .Not-found img {
         height: 40px;
     }
@@ -21,4 +21,4 @@
     .Not-found img {
         height: 40px;
     }
-}
+} */
