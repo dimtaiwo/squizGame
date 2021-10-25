@@ -1,5 +1,18 @@
 .Home {
-  width: 80%;
+  width: auto;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Home a{
+  width: 200px;
+  margin: 0 auto;
+}
+
+.frontman-mask{
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40px;
 }

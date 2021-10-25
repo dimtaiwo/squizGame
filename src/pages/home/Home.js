@@ -1,40 +1,47 @@
-import Button from "../../components/UI/Button";
-import Title from "../../components/UI/Title";
+import Button from "../../components/UI/Button/Button";
+import Title from "../../components/UI/Title/Title";
 import { Link } from "react-router-dom";
-import BackButton from "../../components/UI/BackButton";
+import styled, { keyframes } from 'styled-components'
+import BackButton from '../../components/UI/BackButton/BackButton'
 import "./Home.css";
+import frontmanMask from "../../components/assets/fontman-mask.png"
+
+// Create the keyframes
+const rotate = keyframes`
+    from {
+        transform: rotate(-360deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+`;
+
+const Rotate = styled.div`
+display: inline-block;
+animation: ${rotate} 1.5s linear;
+padding: 2rem 1rem;
+font-size: 1.2rem;
+`;
+
 
 export default function Home() {
   document.title = "Squiz Game";
 
-<<<<<<< HEAD
-    return (
-        <div className="Home">
-            This is the home page
-        </div>
-    );
-};
-
-
-// Logo 
-// 3 Big buttons to redirect to the pages
-// CREATE ROOM 
-// JOIN WITH PIN
-// LEADERBOARD
-=======
   return (
     <div className="Home">
       <Title />
       <Link to="/join">
-        <Button value="join" type="button" />
+        <Button value="Join" type="button" />
       </Link>
       <Link to="/create">
-        <Button value="create" type="button" />
+        <Button value="Create" type="button" />
       </Link>
       <Link to="/leaderboard">
-        <Button value="leaderboard" type="button" />
+        <Button value="Leaderboard" type="button" />
       </Link>
+      <BackButton />
+      <Rotate><img className="frontman-mask" src={frontmanMask} alt="" width="100px" /></Rotate>
     </div>
   );
 }
->>>>>>> f44a00d5b1521cf2d2356237843897366915fc79
