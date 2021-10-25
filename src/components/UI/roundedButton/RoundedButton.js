@@ -12,7 +12,7 @@ export default function RoundedButton(props) {
     const history = useHistory();
 
     // Custom styles so the button can be used in many places
-    const backgroundColor = props.color || "#19CACA";
+    const backgroundColor = props.backgroundColor || "#016780";
     const textColour = props.textColour || "white";
     const styles = {
         "background-color": backgroundColor,
