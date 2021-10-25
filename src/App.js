@@ -1,9 +1,9 @@
 import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
-import Home from './pages/Home';
-import Leaderboard from './pages/Leaderboard';
-import NotFound from './pages/NotFound';
+import Home from './pages/home/Home';
+import Leaderboard from './pages/leaderboard/Leaderboard';
+import NotFound from './pages/404/NotFound';
 
 function App() {
   return (
