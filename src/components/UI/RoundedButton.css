@@ -1,0 +1,12 @@
+.Rounded-button {
+    padding: 17px 0px;
+}
+
+.Rounded-button button {
+    border: none;
+    border-radius: 25px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 13px 17px;
+}
