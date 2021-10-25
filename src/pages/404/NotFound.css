@@ -1,0 +1,35 @@
+.Not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Not-found img {
+    padding: 20px 0px;
+}
+
+@media only screen and (max-width: 320px) {
+    .Not-found img {
+        height: 30px;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 576px) {
+    .Not-found img {
+        height: 36.5px;
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 1200) {
+    .Not-found img {
+        height: 50px;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .Not-found img {
+        height: 70px;
+    }
+}
