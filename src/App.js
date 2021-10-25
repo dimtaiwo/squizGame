@@ -9,6 +9,13 @@ import CreateRoom from "./pages/createRoom/CreateRoom";
 
 
 function App() {
+
+  /**
+   * DEFAULT COLOURS FOR SQUID GAME
+   * #EE4872 => Pink
+   * #016780 => Green / blue
+   */
+
   return (
     <div className="App">
 

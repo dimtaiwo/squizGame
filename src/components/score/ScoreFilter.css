@@ -1,0 +1,19 @@
+.Score-filter {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.Score-filter select {
+    padding: 10px 10px;
+    color: white;
+    border-radius: 13px;
+    border: none;
+    background-color: #016780;
+}
+
+/* NOT WORKIG AT THE MOMENT */
+
+.Score-filter select option:hover {
+    background-color: #EE4872;
+}
