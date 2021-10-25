@@ -7,3 +7,10 @@ export default function Home() {
         </div>
     );
 };
+
+
+// Logo 
+// 3 Big buttons to redirect to the pages
+// CREATE ROOM 
+// JOIN WITH PIN
+// LEADERBOARD

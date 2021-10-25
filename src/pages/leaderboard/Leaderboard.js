@@ -7,3 +7,6 @@ export default function Leaderboard() {
         </div>
     );
 };
+
+// SIMPLE LIST WITH THE TOP 15, NAME AND SCORE
+// FILTER BY TOPIC, SCORE, NAME, ETC..
