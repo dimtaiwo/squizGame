@@ -9,6 +9,8 @@ export default function ScoreCard(props) {
 
             <div className="topic">{props.topic}</div>
 
+            <div className="difficulty">{props.difficulty}</div>
+
             <div className="score">{props.score}</div>
         </div>
     );

@@ -39,7 +39,7 @@ export default function Leaderboard() {
             <ScoreFilter data={scoreData} filterData={filterData} />
 
             <div className="scores">
-                {filteredData.map((score, i) => <ScoreCard rank={i + 1} key={score.id} name={score.name} topic={score.topic} score={score.score} />)}
+                {filteredData.map((score, i) => <ScoreCard rank={i + 1} key={score.id} name={score.name} difficulty={score.difficulty} topic={score.topic} score={score.score} />)}
             </div>
         </div>
     );
