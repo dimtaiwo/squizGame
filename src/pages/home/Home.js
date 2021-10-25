@@ -40,7 +40,6 @@ export default function Home() {
       <Link to="/leaderboard">
         <Button value="Leaderboard" type="button" />
       </Link>
-      <BackButton />
       <Rotate><img className="frontman-mask" src={frontmanMask} alt="" width="100px" /></Rotate>
     </div>
   );
