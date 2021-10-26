@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import Particles from "react-particles-js";
 import particlesConfig from "../../config/particlesConfig";
@@ -7,12 +7,23 @@ import RoundedButton from "../../components/UI/roundedButton/RoundedButton";
 
 import "./Join.css";
 
+import io from "socket.io-client";
+import { Socket } from "socket.io";
+
+import { SocketContext } from "../../Context";
+
 export default function Join() {
 
-    const [roomId, setRoomId] = useState("axc34fsc5");
+    const { socket, setSocket } = useContext(SocketContext);
+
+    const [roomId, setRoomId] = useState(socket.id);
 
     const inputChangeHandler = (event) => {
+        console.log(event.target.value);
         setRoomId(event.target.value);
+
+        socket.emit("join", roomId)
+
     };
 
     return (
