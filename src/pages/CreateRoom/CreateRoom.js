@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import io from "socket.io-client";
@@ -25,6 +25,12 @@ const CreateRoom = () => {
     setSocket(io("http://localhost:4000/"));
   }
 
+  useEffect(() => {
+    socket.on("created", (roomId) => {
+      history.push(`/game/${roomId}`);
+    });
+  }, []);
+
   // socket.on("created", (roomId) => {
   //   history.push(`/game/${roomId}`);
   // });
@@ -50,9 +56,9 @@ const CreateRoom = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    socket.on("created", (roomId) => {
-      history.push(`/game/${roomId}`);
-    });
+    // socket.on("created", (roomId) => {
+    //   history.push(`/game/${roomId}`);
+    // });
 
     socket.emit("create", details);
   };
