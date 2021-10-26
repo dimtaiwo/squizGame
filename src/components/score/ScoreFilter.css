@@ -1,0 +1,32 @@
+.Score-filter {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.Score-filter div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px;
+    font-size: 18px;
+}
+
+.Score-filter .Score-filter-by {
+    margin-right: 20px;
+}
+
+.Score-filter select {
+    padding: 10px 10px;
+    font-size: 15px;
+    color: white;
+    border-radius: 13px;
+    border: none;
+    background-color: #016780;
+}
+
+/* NOT WORKIG AT THE MOMENT */
+
+.Score-filter select option:hover {
+    background-color: #EE4872;
+}

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import io from "socket.io-client";
 import { Form } from "react-bootstrap";
-
-import "./CreateRoom.css";
+import './CreateRoom.css';
 
 import Button from "../../components/UI/Button/Button";
 import BackButton from "../../components/UI/BackButton/BackButton";
@@ -16,11 +16,25 @@ const CreateRoom = () => {
   // const [questions, setNumberQuestions] = useState(1);
 
   // const [settings, setSettings] = useState("");
-  const socket = io("http://localhost:4000/");
 
-  socket.on("created", (roomId) => {
-    console.log(roomId);
-  });
+  // const socketRef = useRef();
+  const history = useHistory();
+
+  const [socket, setSocket] = useState();
+  if (!socket) {
+    setSocket(io("http://localhost:4000/"));
+  }
+
+  useEffect(() => {
+    socket.on("created", (roomId) => {
+      history.push(`/game/${roomId}`);
+    });
+  }, []);
+
+  // socket.on("created", (roomId) => {
+  //   history.push(`/game/${roomId}`);
+  // });
+
 
   const [details, setDetails] = useState({
     topic: "",
@@ -42,9 +56,11 @@ const CreateRoom = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    socket.emit("create", details);
+    // socket.on("created", (roomId) => {
+    //   history.push(`/game/${roomId}`);
+    // });
 
-    console.log(details);
+    socket.emit("create", details);
   };
 
   return (
