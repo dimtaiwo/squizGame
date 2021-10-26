@@ -26,6 +26,13 @@ const getData = () =>
             name: "Dim",
             score: 50,
             topic: "Science",
+            difficulty: "Easy"
+        },
+        {
+            id: 5,
+            name: "Kushal",
+            score: 20,
+            topic: "Computer",
             difficulty: "Hard"
         }
     ];

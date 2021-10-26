@@ -1,0 +1,9 @@
+.Leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Leaderboard-header button:hover {
+    background-image: none;
+}
