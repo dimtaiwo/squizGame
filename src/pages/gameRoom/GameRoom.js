@@ -1,32 +1,33 @@
+import { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
+
 import io from "socket.io-client";
+
+
 
 export default function GameRoom() {
 
-    // const id = "Pp6U7knXKOfO-pUQAAAN";
+    // socket.emit("getData");
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id');
+    const { id } = useParams();
 
-    console.log(id);
+    const socketRef = useRef(io("http://localhost:4000/"));
+    console.log(socketRef);
 
-    const socket = io("http://localhost:4000/");
+    // const socket = io("http://localhost:4000/");
+    // socket.emit("join", id);
 
-    socket.emit("join", id);
+    // socket.on("joined", (sockId) => {
+    //     console.log("Joined the room " + sockId);
+    // });
 
-    socket.emit("getData");
-
-    socket.on("joined", () => {
-        console.log("Joined the room " + id);
-    });
-
-    socket.on("receiveData", (data) => {
-        console.log(data);
-    });
+    // socket.on("receiveData", (data) => {
+    //     console.log(data);
+    // });
 
     return (
         <div className="Game-room">
-            This is the game room page
+            This is the game room page for id {id}
         </div>
     );
 };
