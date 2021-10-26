@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import io from "socket.io-client";
@@ -7,19 +7,24 @@ import io from "socket.io-client";
 
 export default function GameRoom() {
 
-    // socket.emit("getData");
+    const [socket, setSocket] = useState();
+    if (!socket) {
+        setSocket(io("http://localhost:4000/"));
+    }
 
     const { id } = useParams();
 
-    const socketRef = useRef(io("http://localhost:4000/"));
-    console.log(socketRef);
+    useEffect(() => {
+        socket.emit("join", id);
 
-    // const socket = io("http://localhost:4000/");
-    // socket.emit("join", id);
+        socket.on("joined", (sockId) => {
+            console.log("Joined the room " + sockId);
+        });
+    }, []);
 
-    // socket.on("joined", (sockId) => {
-    //     console.log("Joined the room " + sockId);
-    // });
+    // socket.emit("getData");
+
+
 
     // socket.on("receiveData", (data) => {
     //     console.log(data);
