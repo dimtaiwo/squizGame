@@ -15,7 +15,7 @@ export default function RoundedButton(props) {
     const backgroundColor = props.backgroundColor || "#016780";
     const textColour = props.textColour || "white";
     let styles = {
-        "background-color": backgroundColor,
+        backgroundColor: backgroundColor,
         "color": textColour,
     };
 
