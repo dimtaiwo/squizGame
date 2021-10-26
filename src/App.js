@@ -13,19 +13,11 @@ import { io } from "socket.io-client";
 
 function App() {
 
-<<<<<<< HEAD
-  const socket = io("http://localhost:4000/");
-
-  socket.on("created", (roomId) => {
-    console.log(roomId);
-  });
-=======
   /**
    * DEFAULT COLOURS FOR SQUID GAME
    * #EE4872 => Pink
    * #016780 => Green / blue
    */
->>>>>>> be466eefd342c0d947b383182946567773f2c4b4
 
   return (
     <div className="App">
@@ -40,10 +32,7 @@ function App() {
 
         <Route exact path="/leaderboard" component={Leaderboard} />
 
-<<<<<<< HEAD
-=======
         <Route exact path="/join" component={Join} />
->>>>>>> be466eefd342c0d947b383182946567773f2c4b4
 
 
         <Route render={() => <NotFound />} />
