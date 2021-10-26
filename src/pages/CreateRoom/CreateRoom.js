@@ -8,6 +8,9 @@ import './CreateRoom.css';
 import Button from "../../components/UI/Button/Button";
 import BackButton from "../../components/UI/BackButton/BackButton";
 
+import Soldier from '../../components/assets/Squid-Game-Soldier-Mask-1-01.png';
+import CreateTitle from '../../components/assets/create-game.png'
+
 const CreateRoom = () => {
   //States
   // const [topic, setTopic] = useState("");
@@ -65,7 +68,7 @@ const CreateRoom = () => {
 
   return (
     <div className="create-room">
-      <h2>Create Game</h2>
+      <img className="create-title-image" src={CreateTitle} alt="Create Game" />
 
       {/* User options for selecting a topic */}
       <Form.Select
@@ -127,6 +130,7 @@ const CreateRoom = () => {
       />
       <Button type="button" value="Create Game" onClick={handleClick} />
       <BackButton value="Go Back" />
+      <img className="soldier-image" src={Soldier} alt="image of squid game soldier" />
     </div>
   );
 };
