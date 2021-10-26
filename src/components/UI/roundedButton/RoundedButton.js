@@ -14,10 +14,13 @@ export default function RoundedButton(props) {
     // Custom styles so the button can be used in many places
     const backgroundColor = props.backgroundColor || "#016780";
     const textColour = props.textColour || "white";
-    const styles = {
+    let styles = {
         "background-color": backgroundColor,
         "color": textColour,
     };
+
+    if (props.styles)
+        styles = { ...styles, ...props.styles }
 
     // Text to display to the button
     const buttonText = props.text || "Home";

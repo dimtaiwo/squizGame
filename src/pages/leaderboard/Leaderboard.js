@@ -1,7 +1,10 @@
 import { useState } from "react";
 
+import "./Leaderboard.css";
+
 import ScoreCard from "../../components/score/ScoreCard";
 import ScoreFilter from "../../components/score/ScoreFilter";
+import RoundedButton from "../../components/UI/roundedButton/RoundedButton";
 import getData from "./data";
 
 export default function Leaderboard() {
@@ -33,8 +36,10 @@ export default function Leaderboard() {
 
     return (
         <div className="Leaderboard container">
-
-            <ScoreFilter data={scoreData} filterData={filterData} />
+            <div className="Leaderboard-header">
+                <RoundedButton styles={{ padding: "10px", margin: "20px" }} />
+                <ScoreFilter data={scoreData} filterData={filterData} />
+            </div>
 
             <div className="scores">
                 {filteredData.map((score, i) => <ScoreCard rank={i + 1} key={score.id} name={score.name} topic={score.topic} difficulty={score.difficulty} score={score.score} />)}
