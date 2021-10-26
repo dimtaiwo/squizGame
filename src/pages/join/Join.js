@@ -26,7 +26,7 @@ export default function Join() {
                     </div>
 
                     <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 join-buttons">
-                        <RoundedButton text="Home" styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }} onClickPath={`/game/${roomId}`} />
+                        <RoundedButton text="Home" styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }} onClickPath="/" />
                         <RoundedButton id="join-room-button" text="Join Room" styles={{ backgroundColor: "#ee4872c0" }} onClickPath={`/game/${roomId}`} />
                     </div>
                 </div>
