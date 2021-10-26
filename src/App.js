@@ -6,7 +6,7 @@ import Leaderboard from "./pages/leaderboard/Leaderboard";
 import NotFound from "./pages/404/NotFound";
 import Join from "./pages/join/Join";
 import CreateRoom from "./pages/createRoom/CreateRoom";
-
+import GameRoom from "./pages/gameRoom/GameRoom"
 
 function App() {
 
@@ -18,13 +18,12 @@ function App() {
 
   return (
     <div className="App">
-
       <Switch>
         <Route exact path="/" component={Home} />
 
         <Route exact path="/create" component={CreateRoom} />
 
-        {/* <Route exact path="/game/:id" component={GameRoom} /> */}
+        <Route exact path="/game/:id" component={GameRoom} />
 
         <Route exact path="/leaderboard" component={Leaderboard} />
 
