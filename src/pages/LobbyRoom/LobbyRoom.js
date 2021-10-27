@@ -12,6 +12,8 @@ const LobbyRoom = () => {
     const { points, setPoints } = useContext(SocketContext);
     const { gameEnded, setGameEnded } = useContext(SocketContext);
     const { lobbyId, setLobbyId } = useContext(SocketContext);
+    const { maxPlayers } = useContext(SocketContext);
+
 
     const { id } = useParams();
 
@@ -20,6 +22,8 @@ const LobbyRoom = () => {
     const [questionIndex, setQuestionIndex] = useState(0);
 
     const history = useHistory();
+
+    const [roomFull, setRoomFull] = useState(false);
 
 
     useEffect(() => {
@@ -31,7 +35,7 @@ const LobbyRoom = () => {
 
         socket.emit("getData", id);
 
-        socket.emit("join", id);
+        socket.emit("join", [id, "asdsa"]);
 
         socket.on("joined", async (socket, gameQuestions) => {
             // setSocket(socket);
@@ -47,8 +51,14 @@ const LobbyRoom = () => {
             } else {
                 setHaveData(false);
             }
-
         });
+
+        socket.on("roomFull", (d) => {
+            // IF THE ROOM IS FULL WE WILL KNOW
+            console.log("The room is full with " + d + " members");
+            setRoomFull(true);
+        });
+
     }, []);
 
     const getQuestionWithIndex = () => {
@@ -93,6 +103,8 @@ const LobbyRoom = () => {
             {/* {haveData && console.log(data.questions)} */}
 
             {haveData == false ? <center><h1 style={{ color: 'red' }}>The lobby does not exist</h1></center> : ""}
+
+            {roomFull && <center><h1 style={{ color: 'red' }}>This lobby is full!!</h1></center>}
 
         </div>
     );

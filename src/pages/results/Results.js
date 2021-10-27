@@ -11,10 +11,11 @@ export default function Results() {
     const { socket } = useContext(SocketContext);
     const { username } = useContext(SocketContext);
 
-    const [currentScores, setCurrentScores] = useState([{ points: points, username: "Dim" }]);
+    const [currentScores, setCurrentScores] = useState([{ points: points, username: username }]);
 
     useEffect(() => {
         socket.on("updatedResults", (results) => {
+            console.log("Te results now are: " + results);
             setCurrentScores(results);
         });
 
