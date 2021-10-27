@@ -1,62 +1,68 @@
 import { useState, useEffect, useContext } from "react";
-import { NavLink, useParams, useHistory } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { SocketContext } from "../../Context";
+import QRCode from "react-qr-code";
 
-import io from "socket.io-client";
+import { SocketContext } from "../../Context";
 
 import "./GameRoom.css";
 
 export default function GameRoom() {
-  console.log("socket in local storage is " + localStorage.getItem("socketId"));
-  const { socket, setSocket } = useContext(SocketContext);
-  const { data, setData } = useContext(SocketContext);
+    console.log("socket in local storage is " + localStorage.getItem("socketId"));
+    const { socket, setSocket } = useContext(SocketContext);
+    const { data, setData } = useContext(SocketContext);
 
-  // const [socket, setSocket] = useState();
-  // if (!socket) {
-  //     setSocket(io("http://localhost:4000/"));
-  // }
-
-  const { id } = useParams();
-  console.log(useParams());
-  console.log(id);
-
-  useEffect(() => {
-    socket.emit("join", id);
+    const { id } = useParams();
+    console.log(useParams());
     console.log(id);
 
-    socket.on("joined", (socket) => {
-      console.log("Joined the room " + socket);
+    useEffect(() => {
+        socket.emit("join", id);
+        console.log(id);
+
+        socket.on("joined", (socket) => {
+            console.log("Joined the room " + socket);
+        });
+
+        socket.on("receiveData", (data) => {
+            console.log(data);
+            setData(data);
+        });
+
+        socket.emit("getData", id);
+    }, []);
+
+    // const { id } = useParams();
+
+    socket.on("sendQuestions", (questionsReceived) => {
+        console.log(questionsReceived);
+        setData(questionsReceived);
     });
 
-    socket.on("receiveData", (data) => {
-      console.log(data);
-      setData(data);
-    });
-  }, []);
-  socket.emit("getData");
+    const getLobbyUrl = () => {
+        const url = window.location.href;
+        return url.replace("game", "lobby");
+    };
 
-  // const { id } = useParams();
+    return (
+        <div className="Game-room">
+            <h2 className="game-room-title">
+                This is the game room page for id {id}
+            </h2>
 
-  socket.on("sendQuestions", (questionsReceived) => {
-    console.log(questionsReceived);
-    setData(questionsReceived);
-  });
+            <center>
+                <QRCode value={getLobbyUrl()} />
+            </center>
 
-  return (
-    <div className="Game-room">
-      <h2 className="game-room-title">
-        This is the game room page for id {id}
-      </h2>
-      <div className="display-questions">
-        <h2>Hello World</h2>
-        {data && console.log(data["questions"])}
-        <Link to={`/lobby/${id}`}>Go to Lobby</Link>
-        {/* {data && data.questions.map((question) => (<p>{question.question}</p>))} */}
-      </div>
-    </div>
-  );
+            <div className="display-questions">
+                <h2>Hello World</h2>
+                {data && console.log(data["questions"])}
+                <Link to={`/lobby/${id}`}>Go to Lobby</Link>
+                {/* {data && data.questions.map((question) => (<p>{question.question}</p>))} */}
+            </div>
+        </div>
+    );
 }
 
 // CHECK IF ROOM WAS STARTED
