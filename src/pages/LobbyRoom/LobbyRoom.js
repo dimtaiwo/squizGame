@@ -11,6 +11,7 @@ const LobbyRoom = () => {
     const { socket, setSocket } = useContext(SocketContext);
     const { points, setPoints } = useContext(SocketContext);
     const { gameEnded, setGameEnded } = useContext(SocketContext);
+    const { lobbyId, setLobbyId } = useContext(SocketContext);
 
     const { id } = useParams();
 
@@ -27,6 +28,7 @@ const LobbyRoom = () => {
     }, [gameEnded])
 
     useEffect(() => {
+
         socket.emit("getData", id);
 
         socket.emit("join", id);
@@ -34,6 +36,8 @@ const LobbyRoom = () => {
         socket.on("joined", async (socket, gameQuestions) => {
             // setSocket(socket);
             console.log(gameQuestions);
+
+            setLobbyId(id);
 
             if (gameQuestions) {
                 // console.log(gameQuestions);
