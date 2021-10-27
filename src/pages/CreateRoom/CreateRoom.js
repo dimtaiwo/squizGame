@@ -1,40 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import io from "socket.io-client";
 import { Form } from "react-bootstrap";
-import './CreateRoom.css';
+import "./CreateRoom.css";
 
 import Button from "../../components/UI/Button/Button";
 import BackButton from "../../components/UI/BackButton/BackButton";
 
+import Soldier from "../../components/assets/Squid-Game-Soldier-Mask-1-01.png";
+import CreateTitle from "../../components/assets/create-game.png";
+
+import { SocketContext } from "../../Context";
+
 const CreateRoom = () => {
-  //States
-  // const [topic, setTopic] = useState("");
-  // const [difficulty, setDifficulty] = useState("");
-  // const [players, setNumberPlayers] = useState(1);
-  // const [questions, setNumberQuestions] = useState(1);
-
-  // const [settings, setSettings] = useState("");
-
-  // const socketRef = useRef();
   const history = useHistory();
 
-  const [socket, setSocket] = useState();
-  if (!socket) {
-    setSocket(io("http://localhost:4000/"));
-  }
+  const { socket, setSocket } = useContext(SocketContext);
+  const { data, setData } = useContext(SocketContext);
 
   useEffect(() => {
     socket.on("created", (roomId) => {
-      history.push(`/game/${roomId}`);
+      localStorage.setItem("socketId", roomId);
+      //history.push(`/game/${roomId}`);
     });
   }, []);
 
   // socket.on("created", (roomId) => {
   //   history.push(`/game/${roomId}`);
   // });
-
 
   const [details, setDetails] = useState({
     topic: "",
@@ -56,16 +50,21 @@ const CreateRoom = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    // socket.on("created", (roomId) => {
-    //   history.push(`/game/${roomId}`);
-    // });
+    socket.on("created", (roomId) => {
+      history.push(`/game/${roomId}`);
+    });
 
     socket.emit("create", details);
+
+    // socket.on("getData", (questions) => {
+    //   console.log("questions at FRONTEND:" + questions);
+    //   setData(questions);
+    // });
   };
 
   return (
     <div className="create-room">
-      <h2>Create Game</h2>
+      <img className="create-title-image" src={CreateTitle} alt="Create Game" />
 
       {/* User options for selecting a topic */}
       <Form.Select
@@ -127,6 +126,11 @@ const CreateRoom = () => {
       />
       <Button type="button" value="Create Game" onClick={handleClick} />
       <BackButton value="Go Back" />
+      <img
+        className="soldier-image"
+        src={Soldier}
+        alt="image of squid game soldier"
+      />
     </div>
   );
 };
