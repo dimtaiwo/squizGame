@@ -8,6 +8,8 @@ const LobbyRoom = () => {
 
     const { data, setData } = useContext(SocketContext);
     const { socket, setSocket } = useContext(SocketContext);
+    const { points, setPoints } = useContext(SocketContext);
+    const { gameEnded, setGameEnded } = useContext(SocketContext);
 
     const { id } = useParams();
 
@@ -15,12 +17,12 @@ const LobbyRoom = () => {
 
     const [questionIndex, setQuestionIndex] = useState(0);
 
-    const [points, setPoints] = useState(0);
+    const history = useHistory();
 
-    const [gameEnded, setGameEnded] = useState(false);
 
     useEffect(() => {
-        console.log("The game has ended and the points are: " + points);
+        if (gameEnded)
+            history.push("/results");
     }, [gameEnded])
 
     useEffect(() => {
@@ -60,6 +62,10 @@ const LobbyRoom = () => {
     const registerAnswer = (answer) => {
         if (gameEnded)
             return;
+
+        // DEBUG
+        console.log("The correct_answer is: " + data.questions[questionIndex].correct_answer);
+        console.log("The given_answer is: " + answer);
 
         if (questionIndex <= data.questions.length && answer === data.questions[questionIndex].correct_answer)
             setPoints(prevPoints => prevPoints + 3);
