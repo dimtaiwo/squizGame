@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import Leaderboard from "./pages/leaderboard/Leaderboard";
 import NotFound from "./pages/404/NotFound";
 import Join from "./pages/join/Join";
-import CreateRoom from "./pages/CreateRoom/createRoom";
+import CreateRoom from "./pages/createRoom/CreateRoom";
 import GameRoom from "./pages/gameRoom/GameRoom";
 import LobbyRoom from "./pages/LobbyRoom/LobbyRoom";
 import Results from "./pages/results/Results";
@@ -19,6 +19,8 @@ function App() {
   const [socket, setSocket] = useState();
   const [points, setPoints] = useState(0);
   const [gameEnded, setGameEnded] = useState(false);
+  const [lobbyId, setLobbyId] = useState();
+  const [username, setUsername] = useState(`User_${Math.floor(Math.random() * 1000)}`);
 
   if (!socket) {
     const newSocket = io("http://localhost:4000/");
@@ -27,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <SocketContext.Provider value={{ socket, setSocket, data, setData, points, setPoints, gameEnded, setGameEnded }}>
+      <SocketContext.Provider value={{ socket, setSocket, data, setData, points, setPoints, gameEnded, setGameEnded, lobbyId, setLobbyId, username, setUsername }}>
         <Switch>
           <Route exact path="/" component={Home} />
 
