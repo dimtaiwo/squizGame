@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../../Context";
+import './Results.css';
+import YourScore from '../../components/assets/your-score.png'
 
 export default function Results() {
 

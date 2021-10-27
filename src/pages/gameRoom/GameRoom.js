@@ -7,6 +7,7 @@ import QRCode from "react-qr-code";
 import { SocketContext } from "../../Context";
 
 import "./GameRoom.css";
+import InviteCard from "../../components/assets/invitation-card.png"
 
 export default function GameRoom() {
     console.log("socket in local storage is " + localStorage.getItem("socketId"));
@@ -51,12 +52,12 @@ export default function GameRoom() {
                 This is the game room page for id {id}
             </h2>
 
+
             <center>
                 <QRCode value={getLobbyUrl()} />
             </center>
 
             <div className="display-questions">
-                <h2>Hello World</h2>
                 {data && console.log(data["questions"])}
                 <Link to={`/lobby/${id}`}>Go to Lobby</Link>
                 {/* {data && data.questions.map((question) => (<p>{question.question}</p>))} */}

@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { SocketContext } from '../../Context';
 import { useParams, useHistory } from 'react-router-dom';
 import Question from '../../components/question/Question';
+import './LobbyRoom.css';
 
 
 const LobbyRoom = () => {
