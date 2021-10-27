@@ -15,3 +15,32 @@
     justify-content: center;
     margin-top: 5%;
 }
+
+.Results{
+    width: 500px;
+    margin: 3% auto;
+}
+
+.results-title{
+    color: palevioletred;
+    text-align: center;
+    margin: 5%;
+}
+
+.scores{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.scores p{
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.lobby-message{
+    color: palevioletred;
+    margin-top: 30px;
+    font-size: 20px
+}

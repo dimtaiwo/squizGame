@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../../Context";
 import './Results.css';
-import YourScore from '../../components/assets/your-score.png'
+import YourScore from '../../components/assets/your-score.png';
+import Money from '../../components/assets/falling_money.png';
+import ThreeGuards from '../../components/assets/three-guards.jpg'
+import ResultsTitleImg from '../../components/assets/results-title-img.png'
 
 export default function Results() {
 
@@ -27,7 +30,7 @@ export default function Results() {
             // return <center><h1>The points for you are: {points}</h1></center>
             return (
                 <div className="scores">
-                    {currentScores.map(score => <center><h1>User: {score.username}, Points: {score.points}</h1></center>)}
+                    {currentScores.map(score => <p>User: {score.username} - Points: {score.points}</p>)}
                 </div>
             );
 
@@ -38,8 +41,10 @@ export default function Results() {
 
     return (
         <div className="Results">
+            <img className="results-title" src={ResultsTitleImg} alt="" />
             {getResultMessage()}
-            <h2>The lobby id is: {lobbyId} and the user is: {username}</h2>
+            <p className="lobby-message">The lobby id is: {lobbyId} and the user is: {username}</p>
+            <img className="three-guards" src={ThreeGuards} alt="" width="300px" />
         </div>
     );
 };
