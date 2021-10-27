@@ -5,7 +5,7 @@
 }
 .create-room {
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 1%;
   width: 500px;
   display: flex;
   flex-direction: column;
@@ -26,4 +26,29 @@
 option {
   padding: 10px;
   font-size: 18px;
+}
+
+.input-form-field{
+  text-align:left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+#questions-number{
+  padding-left: 10px;
+}
+
+#players-number{
+  padding-left: 10px;
+}
+
+.soldier-image{
+  width: 350px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.create-title-image{
+  margin-bottom: 4%;
 }
