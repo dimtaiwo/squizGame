@@ -24,6 +24,8 @@ function App() {
     `User_${Math.floor(Math.random() * 1000)}`
   );
 
+  const [maxPlayers, setMaxPlayers] = useState(9999);
+
   if (!socket) {
     const newSocket = io("http://localhost:4000/");
     setSocket(newSocket);
@@ -45,6 +47,8 @@ function App() {
           setLobbyId,
           username,
           setUsername,
+          maxPlayers,
+          setMaxPlayers,
         }}
       >
         <Switch>

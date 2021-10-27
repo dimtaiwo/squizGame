@@ -22,27 +22,6 @@ export default function Join() {
 
   const [roomId, setRoomId] = useState(socket.id);
 
-  // const joinHandler = async () => {
-  //     console.log('we made it to join handler')
-  //     console.log(roomId);
-
-  //     socket.emit("getData", roomId);
-
-  //     socket.emit("join", roomId);
-
-  //     socket.on("joined", async (socket, gameQuestions) => {
-  //         // setSocket(socket);
-  //         console.log(gameQuestions);
-
-  //         // console.log(gameQuestions);
-  //         await setData(gameQuestions);
-  //         console.log("Joined the room " + socket);
-  //     })
-
-  //     console.log(data);
-  //     console.log(socket);
-  // }
-
   const inputChangeHandler = (event) => {
     console.log(event.target.value);
     setRoomId(event.target.value);
