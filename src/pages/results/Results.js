@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { SocketContext } from "../../Context";
+import './Results.css';
+import YourScore from '../../components/assets/your-score.png'
 
 export default function Results() {
 
@@ -8,7 +10,7 @@ export default function Results() {
 
     const getResultMessage = () => {
         if (gameEnded)
-            return <center><h1>The points for you are: {points}</h1></center>
+            return <div className="display-result"><h1>Your score is: {points}</h1></div>
 
         return <center> <h1 style={{ color: "red" }}>You have not played the game!!</h1> </center>
     }

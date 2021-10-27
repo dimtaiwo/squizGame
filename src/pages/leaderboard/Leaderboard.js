@@ -6,6 +6,7 @@ import ScoreCard from "../../components/score/ScoreCard";
 import ScoreFilter from "../../components/score/ScoreFilter";
 import RoundedButton from "../../components/UI/roundedButton/RoundedButton";
 import getData from "./data";
+import ThreeGuards from '../../components/assets/three-guards.jpg'
 
 export default function Leaderboard() {
     document.title = "Leaderboard";
@@ -44,6 +45,7 @@ export default function Leaderboard() {
             <div className="scores">
                 {filteredData.map((score, i) => <ScoreCard rank={i + 1} key={score.id} name={score.name} topic={score.topic} difficulty={score.difficulty} score={score.score} />)}
             </div>
+            <img className="three-guards" src={ThreeGuards} alt="" width="300px" />
         </div>
     );
 };
