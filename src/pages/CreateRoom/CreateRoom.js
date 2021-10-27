@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import io from "socket.io-client";
 import { Form } from "react-bootstrap";
 import "./CreateRoom.css";
 
@@ -17,6 +16,7 @@ const CreateRoom = () => {
   const history = useHistory();
 
   const { socket, setSocket } = useContext(SocketContext);
+  const { maxPlayers, setMaxPlayers } = useContext(SocketContext);
   const { data, setData } = useContext(SocketContext);
 
   useEffect(() => {
@@ -25,10 +25,6 @@ const CreateRoom = () => {
       //history.push(`/game/${roomId}`);
     });
   }, []);
-
-  // socket.on("created", (roomId) => {
-  //   history.push(`/game/${roomId}`);
-  // });
 
   const [details, setDetails] = useState({
     topic: "",
@@ -44,6 +40,10 @@ const CreateRoom = () => {
     const name = e.target.name;
     const value = e.target.value;
     setDetails({ ...details, [name]: value });
+
+    if (name === "players") {
+      setMaxPlayers(e.target.value);
+    }
   };
 
   // Handle Create Game Click
@@ -55,11 +55,6 @@ const CreateRoom = () => {
     });
 
     socket.emit("create", details);
-
-    // socket.on("getData", (questions) => {
-    //   console.log("questions at FRONTEND:" + questions);
-    //   setData(questions);
-    // });
   };
 
   return (
