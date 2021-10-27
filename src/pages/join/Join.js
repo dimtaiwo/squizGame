@@ -17,6 +17,8 @@ export default function Join() {
 
     const { socket, setSocket } = useContext(SocketContext);
     const { data, setData } = useContext(SocketContext);
+    const { setUsername } = useContext(SocketContext);
+
     console.log(socket);
     console.log(data);
 
@@ -46,7 +48,11 @@ export default function Join() {
     const inputChangeHandler = (event) => {
         console.log(event.target.value);
         setRoomId(event.target.value);
+    };
 
+    const usernameChangeHandler = (event) => {
+        console.log(event.target.value);
+        setUsername(event.target.value);
     };
 
 
@@ -57,6 +63,10 @@ export default function Join() {
             <div className="Join-form container-fluid">
                 <div className="row justify-content-center">
                     <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7">
+                        <input placeholder="Username.." onChange={usernameChangeHandler} type="text" />
+                    </div>
+
+                    <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 py-3">
                         <input placeholder="Room ID.." onChange={inputChangeHandler} type="text" />
                     </div>
 

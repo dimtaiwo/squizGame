@@ -9,6 +9,7 @@ export default function Results() {
     const { gameEnded } = useContext(SocketContext);
     const { lobbyId } = useContext(SocketContext);
     const { socket } = useContext(SocketContext);
+    const { username } = useContext(SocketContext);
 
     const [currentScores, setCurrentScores] = useState([{ points: points, username: "Dim" }]);
 
@@ -17,7 +18,7 @@ export default function Results() {
             setCurrentScores(results);
         });
 
-        socket.emit("result", { points: points, username: "Dim", room: lobbyId });
+        socket.emit("result", { points: points, username: username, room: lobbyId });
     }, []);
 
     const getResultMessage = () => {
@@ -37,7 +38,7 @@ export default function Results() {
     return (
         <div className="Results">
             {getResultMessage()}
-            <h2>The lobby id is: {lobbyId}</h2>
+            <h2>The lobby id is: {lobbyId} and the user is: {username}</h2>
         </div>
     );
 };
