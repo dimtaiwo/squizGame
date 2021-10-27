@@ -6,6 +6,8 @@ import BackButton from "../../components/UI/BackButton/BackButton";
 import frontmanMask from "../../components/assets/fontman-mask.png";
 import "./Home.css";
 
+import Audio from "../../components/audio/Audio"
+
 // Create the keyframes
 const rotate = keyframes`
     from {
@@ -47,6 +49,7 @@ export default function Home() {
           width="100px"
         />
       </Rotate>
+      <Audio />
     </div>
   );
 }

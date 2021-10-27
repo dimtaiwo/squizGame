@@ -7,6 +7,12 @@
 .display-questions{
     text-align: center;
     margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.enter-lobby{
+    align-self: center;
 }
 
 .display-questions p{
@@ -16,4 +22,21 @@
 .game-room-title{
     text-align: center;
     margin: 4%;
+}
+
+.invitation-qr{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.qr-code{
+    align-self: center;
+}
+
+.house-logo{
+    margin: 2% auto;
+    text-align: center;
+    align-self: center;
 }

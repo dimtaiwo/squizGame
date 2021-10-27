@@ -14,6 +14,8 @@ import { useContext, useState } from "react";
 import { SocketContext } from "./Context";
 import { io } from "socket.io-client";
 
+
+
 function App() {
   const [data, setData] = useState(["hello"]);
   const [socket, setSocket] = useState();
@@ -66,6 +68,7 @@ function App() {
           <Route render={() => <NotFound />} />
         </Switch>
       </SocketContext.Provider>
+
     </div>
   );
 }

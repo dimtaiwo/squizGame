@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import QRCode from "react-qr-code";
@@ -7,12 +7,14 @@ import QRCode from "react-qr-code";
 import { SocketContext } from "../../Context";
 
 import "./GameRoom.css";
-import InviteCard from "../../components/assets/invitation-card.png"
+import InviteCard from "../../components/assets/custom-squid-game-card-logo.png"
 
 export default function GameRoom() {
     console.log("socket in local storage is " + localStorage.getItem("socketId"));
     const { socket, setSocket } = useContext(SocketContext);
     const { data, setData } = useContext(SocketContext);
+
+    const history = useHistory();
 
     const { id } = useParams();
     console.log(useParams());
@@ -46,6 +48,10 @@ export default function GameRoom() {
         return url.replace("game", "lobby");
     };
 
+    const handleClick = () => {
+        history.push(`/lobby/${id}`)
+    }
+
     return (
         <div className="Game-room">
             <h2 className="game-room-title">
@@ -53,14 +59,16 @@ export default function GameRoom() {
             </h2>
 
 
-            <center>
-                <QRCode value={getLobbyUrl()} />
-            </center>
+            <div className="invitation-qr">
+                <QRCode className="qr-code" value={getLobbyUrl()} />
+            </div>
 
             <div className="display-questions">
                 {data && console.log(data["questions"])}
-                <Link to={`/lobby/${id}`}>Go to Lobby</Link>
+                {/* <Link className="go-lobby" to={`/lobby/${id}`}>Go to Lobby</Link> */}
+                <button className="enter-lobby" onClick={handleClick}>Enter Lobby</button>
                 {/* {data && data.questions.map((question) => (<p>{question.question}</p>))} */}
+                <img className="house-logo" src={InviteCard} alt="" width="100px" />
             </div>
         </div>
     );
