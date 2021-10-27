@@ -26,7 +26,12 @@ export default function Join() {
         console.log('we made it to join handler')
         console.log(roomId);
 
+        //HERE WHY IS IT NOT FETCHIN THE SAME QUESTIONS AS THE HOST? 
         socket.emit("getData", roomId);
+        socket.on("receiveData", (questions) => {
+            console.log(questions);
+            setData(questions);
+        })
 
         socket.emit("join", roomId);
 
