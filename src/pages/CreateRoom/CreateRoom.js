@@ -17,7 +17,9 @@ const CreateRoom = () => {
 
   const history = useHistory();
 
-  const { socket, setSocket } = useContext(SocketContext)
+  const { socket, setSocket } = useContext(SocketContext);
+  const { data, setData } = useContext(SocketContext);
+
 
   useEffect(() => {
 
@@ -25,6 +27,7 @@ const CreateRoom = () => {
       localStorage.setItem('socketId', roomId);
       history.push(`/game/${roomId}`);
     });
+
   }, []);
 
   // socket.on("created", (roomId) => {
@@ -59,7 +62,8 @@ const CreateRoom = () => {
     socket.emit("create", details);
 
     socket.on("getData", (questions) => {
-      console.log(questions);
+      console.log("questions at FRONTEND:" + questions);
+      setData(questions);
     })
   };
 

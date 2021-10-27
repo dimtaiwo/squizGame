@@ -14,17 +14,47 @@ import { SocketContext } from "../../Context";
 
 export default function Join() {
 
+
     const { socket, setSocket } = useContext(SocketContext);
+    const { data, setData } = useContext(SocketContext);
+    console.log(socket);
+    console.log(data);
 
     const [roomId, setRoomId] = useState(socket.id);
+
+    const joinHandler = async () => {
+        console.log('we made it to join handler')
+        console.log(roomId);
+
+        socket.emit("getData", roomId);
+
+        socket.emit("join", roomId);
+
+        socket.on("joined", async (socket, gameQuestions) => {
+            // setSocket(socket);
+            console.log(gameQuestions);
+
+            // console.log(gameQuestions);
+            await setData(gameQuestions);
+            console.log("Joined the room " + socket);
+
+        })
+
+        // socket.on("receiveData", (gameQuestions) => {
+        //     console.log(gameQuestions);
+        //     // setData(gameQuestions);
+        // })
+
+        console.log(data);
+        console.log(socket);
+    }
 
     const inputChangeHandler = (event) => {
         console.log(event.target.value);
         setRoomId(event.target.value);
 
-        socket.emit("join", roomId)
-
     };
+
 
     return (
         <div className="Join">
@@ -37,8 +67,9 @@ export default function Join() {
                     </div>
 
                     <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 join-buttons">
-                        <RoundedButton text="Home" styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }} onClickPath="/" />
-                        <RoundedButton id="join-room-button" text="Join Room" styles={{ backgroundColor: "#ee4872c0" }} onClickPath={`/game/${roomId}`} />
+                        <RoundedButton text="Home" styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }} />
+                        <button text="Emit Join" onClick={joinHandler}>Handle Join</button>
+                        <RoundedButton id="join-room-button" text="Join Room" styles={{ backgroundColor: "#ee4872c0" }} onClickPath={`/lobby/${roomId}`} />
                     </div>
                 </div>
             </div>
