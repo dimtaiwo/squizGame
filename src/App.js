@@ -24,6 +24,7 @@ function App() {
 
   if (!socket) {
     const newSocket = io("http://localhost:4000/");
+
     setSocket(newSocket);
   }
 
