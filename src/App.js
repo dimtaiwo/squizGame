@@ -19,6 +19,7 @@ function App() {
   const [socket, setSocket] = useState();
   const [points, setPoints] = useState(0);
   const [gameEnded, setGameEnded] = useState(false);
+  const [lobbyId, setLobbyId] = useState();
 
   if (!socket) {
     const newSocket = io("http://localhost:4000/");
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <SocketContext.Provider value={{ socket, setSocket, data, setData, points, setPoints, gameEnded, setGameEnded }}>
+      <SocketContext.Provider value={{ socket, setSocket, data, setData, points, setPoints, gameEnded, setGameEnded, lobbyId, setLobbyId }}>
         <Switch>
           <Route exact path="/" component={Home} />
 
