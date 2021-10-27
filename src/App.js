@@ -5,11 +5,10 @@ import Home from "./pages/home/Home";
 import Leaderboard from "./pages/leaderboard/Leaderboard";
 import NotFound from "./pages/404/NotFound";
 import Join from "./pages/join/Join";
-import CreateRoom from "./pages/createRoom/CreateRoom";
-import GameRoom from "./pages/gameRoom/GameRoom"
+import CreateRoom from "./pages/CreateRoom/CreateRoom";
+import GameRoom from "./pages/gameRoom/GameRoom";
 
 function App() {
-
   /**
    * DEFAULT COLOURS FOR SQUID GAME
    * #EE4872 => Pink
