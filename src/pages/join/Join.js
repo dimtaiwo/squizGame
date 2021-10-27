@@ -13,52 +13,68 @@ import "./Join.css";
 import { SocketContext } from "../../Context";
 
 export default function Join() {
+  const { socket, setSocket } = useContext(SocketContext);
+  const { data, setData } = useContext(SocketContext);
+  const { setUsername } = useContext(SocketContext);
 
+  console.log(socket);
+  console.log(data);
 
-    const { socket, setSocket } = useContext(SocketContext);
-    const { data, setData } = useContext(SocketContext);
-    const { setUsername } = useContext(SocketContext);
+  const [roomId, setRoomId] = useState(socket.id);
 
-    console.log(socket);
-    console.log(data);
+  const inputChangeHandler = (event) => {
+    console.log(event.target.value);
+    setRoomId(event.target.value);
+  };
 
-    const [roomId, setRoomId] = useState(socket.id);
+  const usernameChangeHandler = (event) => {
+    console.log(event.target.value);
+    setUsername(event.target.value);
+  };
 
-    const inputChangeHandler = (event) => {
-        console.log(event.target.value);
-        setRoomId(event.target.value);
-    };
+  return (
+    <div className="Join">
+      <Particles
+        className="particles"
+        height="100vh"
+        params={particlesConfig}
+      />
 
-    const usernameChangeHandler = (event) => {
-        console.log(event.target.value);
-        setUsername(event.target.value);
-    };
+      <div className="Join-form container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7">
+            <input
+              placeholder="Username.."
+              onChange={usernameChangeHandler}
+              type="text"
+            />
+          </div>
 
+          <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 py-3">
+            <input
+              placeholder="Room ID.."
+              onChange={inputChangeHandler}
+              type="text"
+            />
+          </div>
 
-    return (
-        <div className="Join">
-            <Particles className="particles" height="100vh" params={particlesConfig} />
-
-            <div className="Join-form container-fluid">
-                <div className="row justify-content-center">
-                    <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7">
-                        <input placeholder="Username.." onChange={usernameChangeHandler} type="text" />
-                    </div>
-
-                    <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 py-3">
-                        <input placeholder="Room ID.." onChange={inputChangeHandler} type="text" />
-                    </div>
-
-                    <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 join-buttons">
-                        <RoundedButton text="Home" styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }} />
-                        {/* <button text="Emit Join" onClick={joinHandler}>Handle Join</button> */}
-                        <RoundedButton id="join-room-button" text="Join Room" styles={{ backgroundColor: "#ee4872c0" }} onClickPath={`/lobby/${roomId}`} />
-                    </div>
-                </div>
-            </div>
+          <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 join-buttons">
+            <RoundedButton
+              text="Home"
+              styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }}
+            />
+            {/* <button text="Emit Join" onClick={joinHandler}>Handle Join</button> */}
+            <RoundedButton
+              id="join-room-button"
+              text="Join Room"
+              styles={{ backgroundColor: "#ee4872c0" }}
+              onClickPath={`/lobby/${roomId}`}
+            />
+          </div>
         </div>
-    );
-};
-
+      </div>
+    </div>
+  );
+}
 
 // JUST  A FORM TO REDIRECT TO gameRoom with the specific ID

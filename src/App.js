@@ -20,7 +20,9 @@ function App() {
   const [points, setPoints] = useState(0);
   const [gameEnded, setGameEnded] = useState(false);
   const [lobbyId, setLobbyId] = useState();
-  const [username, setUsername] = useState(`User_${Math.floor(Math.random() * 1000)}`);
+  const [username, setUsername] = useState(
+    `User_${Math.floor(Math.random() * 1000)}`
+  );
 
   const [maxPlayers, setMaxPlayers] = useState(9999);
 
@@ -32,7 +34,24 @@ function App() {
 
   return (
     <div className="App">
-      <SocketContext.Provider value={{ socket, setSocket, data, setData, points, setPoints, gameEnded, setGameEnded, lobbyId, setLobbyId, username, setUsername, maxPlayers, setMaxPlayers }}>
+      <SocketContext.Provider
+        value={{
+          socket,
+          setSocket,
+          data,
+          setData,
+          points,
+          setPoints,
+          gameEnded,
+          setGameEnded,
+          lobbyId,
+          setLobbyId,
+          username,
+          setUsername,
+          maxPlayers,
+          setMaxPlayers,
+        }}
+      >
         <Switch>
           <Route exact path="/" component={Home} />
 
