@@ -3,37 +3,32 @@ import { useHistory } from "react-router-dom";
 
 import io from "socket.io-client";
 import { Form } from "react-bootstrap";
-import './CreateRoom.css';
+import "./CreateRoom.css";
 
 import Button from "../../components/UI/Button/Button";
 import BackButton from "../../components/UI/BackButton/BackButton";
 
-import Soldier from '../../components/assets/Squid-Game-Soldier-Mask-1-01.png';
-import CreateTitle from '../../components/assets/create-game.png';
+import Soldier from "../../components/assets/Squid-Game-Soldier-Mask-1-01.png";
+import CreateTitle from "../../components/assets/create-game.png";
 
 import { SocketContext } from "../../Context";
 
 const CreateRoom = () => {
-
   const history = useHistory();
 
   const { socket, setSocket } = useContext(SocketContext);
   const { data, setData } = useContext(SocketContext);
 
-
   useEffect(() => {
-
     socket.on("created", (roomId) => {
-      localStorage.setItem('socketId', roomId);
-      history.push(`/game/${roomId}`);
+      localStorage.setItem("socketId", roomId);
+      //history.push(`/game/${roomId}`);
     });
-
   }, []);
 
   // socket.on("created", (roomId) => {
   //   history.push(`/game/${roomId}`);
   // });
-
 
   const [details, setDetails] = useState({
     topic: "",
@@ -55,16 +50,16 @@ const CreateRoom = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    // socket.on("created", (roomId) => {
-    //   history.push(`/game/${roomId}`);
-    // });
+    socket.on("created", (roomId) => {
+      history.push(`/game/${roomId}`);
+    });
 
     socket.emit("create", details);
 
-    socket.on("getData", (questions) => {
-      console.log("questions at FRONTEND:" + questions);
-      setData(questions);
-    })
+    // socket.on("getData", (questions) => {
+    //   console.log("questions at FRONTEND:" + questions);
+    //   setData(questions);
+    // });
   };
 
   return (
@@ -131,7 +126,11 @@ const CreateRoom = () => {
       />
       <Button type="button" value="Create Game" onClick={handleClick} />
       <BackButton value="Go Back" />
-      <img className="soldier-image" src={Soldier} alt="image of squid game soldier" />
+      <img
+        className="soldier-image"
+        src={Soldier}
+        alt="image of squid game soldier"
+      />
     </div>
   );
 };

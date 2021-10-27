@@ -7,8 +7,8 @@ import RoundedButton from "../../components/UI/roundedButton/RoundedButton";
 
 import "./Join.css";
 
-import io from "socket.io-client";
-import { Socket } from "socket.io";
+// import io from "socket.io-client";
+// import { Socket } from "socket.io";
 
 import { SocketContext } from "../../Context";
 
@@ -22,37 +22,35 @@ export default function Join() {
 
     const [roomId, setRoomId] = useState(socket.id);
 
-    const joinHandler = async () => {
-        console.log('we made it to join handler')
-        console.log(roomId);
+    // const joinHandler = async () => {
+    //     console.log('we made it to join handler')
+    //     console.log(roomId);
 
+<<<<<<< HEAD
         //HERE WHY IS IT NOT FETCHIN THE SAME QUESTIONS AS THE HOST? 
         socket.emit("getData", roomId);
         socket.on("receiveData", (questions) => {
             console.log(questions);
             setData(questions);
         })
+=======
+    //     socket.emit("getData", roomId);
+>>>>>>> 69842d99c3a73c87b80a69808c2c66ef3ed60d2a
 
-        socket.emit("join", roomId);
+    //     socket.emit("join", roomId);
 
-        socket.on("joined", async (socket, gameQuestions) => {
-            // setSocket(socket);
-            console.log(gameQuestions);
+    //     socket.on("joined", async (socket, gameQuestions) => {
+    //         // setSocket(socket);
+    //         console.log(gameQuestions);
 
-            // console.log(gameQuestions);
-            await setData(gameQuestions);
-            console.log("Joined the room " + socket);
+    //         // console.log(gameQuestions);
+    //         await setData(gameQuestions);
+    //         console.log("Joined the room " + socket);
+    //     })
 
-        })
-
-        // socket.on("receiveData", (gameQuestions) => {
-        //     console.log(gameQuestions);
-        //     // setData(gameQuestions);
-        // })
-
-        console.log(data);
-        console.log(socket);
-    }
+    //     console.log(data);
+    //     console.log(socket);
+    // }
 
     const inputChangeHandler = (event) => {
         console.log(event.target.value);
@@ -73,7 +71,7 @@ export default function Join() {
 
                     <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 join-buttons">
                         <RoundedButton text="Home" styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }} />
-                        <button text="Emit Join" onClick={joinHandler}>Handle Join</button>
+                        {/* <button text="Emit Join" onClick={joinHandler}>Handle Join</button> */}
                         <RoundedButton id="join-room-button" text="Join Room" styles={{ backgroundColor: "#ee4872c0" }} onClickPath={`/lobby/${roomId}`} />
                     </div>
                 </div>
