@@ -15,22 +15,26 @@ import { SocketContext } from "../../Context";
 export default function Join() {
   const { socket, setSocket } = useContext(SocketContext);
   const { data, setData } = useContext(SocketContext);
-  const { setUsername } = useContext(SocketContext);
+  const { username, setUsername } = useContext(SocketContext);
 
   console.log(socket);
   console.log(data);
 
-  const [roomId, setRoomId] = useState(socket.id);
+  // Getting the room ID from the url
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const idToJoin = urlParams.get("id");
+
+  const [roomId, setRoomId] = useState(idToJoin);
 
   const inputChangeHandler = (event) => {
-    console.log(event.target.value);
     setRoomId(event.target.value);
   };
 
   const usernameChangeHandler = (event) => {
-    console.log(event.target.value);
     setUsername(event.target.value);
   };
+
 
   return (
     <div className="Join">
@@ -45,6 +49,7 @@ export default function Join() {
           <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7">
             <input
               placeholder="Username.."
+              value={username}
               onChange={usernameChangeHandler}
               type="text"
             />
@@ -53,6 +58,7 @@ export default function Join() {
           <div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 py-3">
             <input
               placeholder="Room ID.."
+              value={roomId}
               onChange={inputChangeHandler}
               type="text"
             />
