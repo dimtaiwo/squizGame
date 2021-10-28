@@ -30,12 +30,13 @@ export default function Results() {
     }, []);
 
     const getResultMessage = () => {
-        if (gameEnded)
+        if (gameEnded) {
             return (
                 <div className="scores">
                     {currentScores.map(score => <Result username={score.username} points={score.points} />)}
                 </div>
             );
+        };
 
         return <center>
             <h1 style={{ color: "red" }}>You have not played the game!!</h1>
