@@ -14,7 +14,6 @@
     .Result{
         width: auto;
         font-size: 15px;
-        white-space: nowrap;
         padding: 5px;
         width: 100%;
     }
