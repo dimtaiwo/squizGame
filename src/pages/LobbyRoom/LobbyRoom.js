@@ -93,7 +93,7 @@ const LobbyRoom = () => {
     };
 
     return (
-        <div className="Lobby">
+        <div className="Lobby" role="lobbyRoom" aria-label="lobbyRoom">
             <h2 className="lobby-room-title">This is the LOBBY room page for id {id}</h2>
             {/* {haveData && data.questions.map((question) => (<p dangerouslySetInnerHTML={{ __html: question.question }}></p>))} */}
 

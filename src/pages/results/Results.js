@@ -40,7 +40,7 @@ export default function Results() {
     }
 
     return (
-        <div className="Results">
+        <div className="Results" role="results" aria-label="results">
             <img className="results-title" src={ResultsTitleImg} alt="" />
             {getResultMessage()}
             <p className="lobby-message">The lobby id is: {lobbyId} and the user is: {username}</p>
