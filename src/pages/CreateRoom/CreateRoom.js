@@ -32,7 +32,7 @@ const CreateRoom = () => {
   const [details, setDetails] = useState({
     topic: "",
     difficulty: "",
-    players: "",
+    players: maxPlayers,
     questions: "",
   });
 
@@ -58,10 +58,10 @@ const CreateRoom = () => {
     if (details.difficulty === "")
       errors.push("Please select a difficulty");
 
-    if (details.players)
+    if (details.players <= 0)
       errors.push("Please select number of players greater than 0");
 
-    if (!details.questions || details.questions <= 0)
+    if (details.questions === "" || details.questions <= 0)
       errors.push("Please select number of questions greater than 0");
 
     if (username.trim() === "")
