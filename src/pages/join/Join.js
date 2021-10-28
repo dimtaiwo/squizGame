@@ -33,7 +33,7 @@ export default function Join() {
   };
 
   return (
-    <div className="Join">
+    <div className="Join" role="join" aria-label="join">
       <Particles
         className="particles"
         height="100vh"

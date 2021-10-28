@@ -53,7 +53,7 @@ export default function GameRoom() {
     }
 
     return (
-        <div className="Game-room">
+        <div className="Game-room" role="gameRoom" aria-label="gameRoom">
             <h2 className="game-room-title">
                 This is the game room page for id {id}
             </h2>

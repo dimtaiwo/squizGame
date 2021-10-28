@@ -30,7 +30,7 @@ export default function Home() {
   document.title = "Squiz Game";
 
   return (
-    <div className="Home">
+    <div className="Home" role="lobbyRoom" aria-label="lobbyRoom">
       <Title />
       <Link to="/join">
         <Button value="Join" type="button" />

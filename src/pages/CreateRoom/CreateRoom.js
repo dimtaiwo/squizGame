@@ -58,7 +58,7 @@ const CreateRoom = () => {
   };
 
   return (
-    <div className="create-room">
+    <div className="create-room" role="createRoom" aria-label="createRoom">
       <img className="create-title-image" src={CreateTitle} alt="Create Game" />
 
       {/* User options for selecting a topic */}
