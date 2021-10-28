@@ -10,6 +10,8 @@ export default function ScoreFilter(props) {
     const [filterTopic, setFilterTopic] = useState("all");
     const [filterDifficulty, setFilterDifficulty] = useState("all");
 
+    //let props.data= [];
+
     props.data.map(score => {
         if (!filteredTopics.includes(score.topic))
             filteredTopics.push(score.topic);

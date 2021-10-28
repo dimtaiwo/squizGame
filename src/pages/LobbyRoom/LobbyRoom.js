@@ -7,7 +7,7 @@ import './LobbyRoom.css';
 
 const LobbyRoom = () => {
 
-    const { data, setData } = useContext(SocketContext);
+    const { data , setData } = useContext(SocketContext);
     const { socket, setSocket } = useContext(SocketContext);
     const { points, setPoints } = useContext(SocketContext);
     const { gameEnded, setGameEnded } = useContext(SocketContext);

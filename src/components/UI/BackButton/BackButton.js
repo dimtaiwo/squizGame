@@ -5,7 +5,7 @@ export default function BackButton() {
 
     return (
         <div>
-            <button aria-label="back-button" onClick={history.goBack}>
+            <button aria-label="back-button" role='back-button' onClick={() => history.goBack}>
                 Go back
             </button>
         </div>

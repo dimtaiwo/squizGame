@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import ScoreFilter from './ScoreFilter'
 
 test('ScoreFilter exists', () => {
-    render(<ScoreFilter />)
-    const incScoreFilter = screen.getByRole('score-filter', { name: "score-filter" })
+    render(<ScoreFilter data={[]}/>)
+    const incScoreFilter = screen.getByRole('score-filter')//, { name: "score-filter" })
     expect(incScoreFilter).toBeInTheDocument
 })
