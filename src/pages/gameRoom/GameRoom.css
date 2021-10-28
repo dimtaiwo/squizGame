@@ -40,3 +40,10 @@
     text-align: center;
     align-self: center;
 }
+
+
+@media only screen and (max-width: 415px){
+    .game-room-title{
+        font-size: 16px;
+    }
+}

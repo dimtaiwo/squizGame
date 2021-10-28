@@ -23,3 +23,33 @@
     font-size: 30px;
     font-weight: bold;
 }
+
+
+@media screen and (max-width: 400px){
+    .Score-card{
+        font-size: 12px;
+        width: 150px;
+        flex-direction: column;
+    }
+
+    .Score-card .score{
+        font-size: 14px;
+        width: 30px;
+        height: 20px;
+        padding: 5px 0px;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 500px){
+    .Score-card{
+        padding: 0px;
+        font-size: 14px;
+    }
+
+    .Score-card .score{
+        font-size: 14px;
+        width: 30px;
+        height: 20px;
+        padding: 5px 0px;
+    }
+}

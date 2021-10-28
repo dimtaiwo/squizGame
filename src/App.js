@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import Leaderboard from "./pages/leaderboard/Leaderboard";
 import NotFound from "./pages/404/NotFound";
 import Join from "./pages/join/Join";
-import CreateRoom from "./pages/CreateRoom/CreateRoom";
+import CreateRoom from "./pages/createRoom/CreateRoom";
 import GameRoom from "./pages/gameRoom/GameRoom";
 import LobbyRoom from "./pages/LobbyRoom/LobbyRoom";
 import Results from "./pages/results/Results";
