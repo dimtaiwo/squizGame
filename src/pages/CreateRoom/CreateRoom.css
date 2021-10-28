@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .create-room {
   margin: 0 auto;
   margin-top: 1%;
@@ -12,43 +13,51 @@
   justify-content: center;
   text-align: center;
 }
+
 .create-room h2 {
   margin-bottom: 5%;
 }
+
 .form-select {
   padding: 10px 5px;
   font-size: 18px;
   outline: none;
 }
+
 .button {
   align-self: center;
 }
+
 option {
   padding: 10px;
   font-size: 18px;
 }
 
-.input-form-field{
-  text-align:left;
+.input-form-field {
+  text-align: left;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 18px;
 }
 
-#questions-number{
+#questions-number {
   padding-left: 10px;
 }
 
-#players-number{
+#players-number {
   padding-left: 10px;
 }
 
-.soldier-image{
+.soldier-image {
   width: 350px;
   text-align: center;
   margin: 0 auto;
 }
 
-.create-title-image{
+.create-title-image {
   margin-bottom: 4%;
+}
+
+.create-room .create-room-errors {
+  color: red;
 }

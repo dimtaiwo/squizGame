@@ -18,6 +18,9 @@ const CreateRoom = () => {
   const { socket, setSocket } = useContext(SocketContext);
   const { maxPlayers, setMaxPlayers } = useContext(SocketContext);
   const { data, setData } = useContext(SocketContext);
+  const { username, setUsername } = useContext(SocketContext);
+
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     socket.on("created", (roomId) => {
@@ -29,7 +32,7 @@ const CreateRoom = () => {
   const [details, setDetails] = useState({
     topic: "",
     difficulty: "",
-    players: "",
+    players: maxPlayers,
     questions: "",
   });
 
@@ -46,9 +49,38 @@ const CreateRoom = () => {
     }
   };
 
+  const validateInput = () => {
+    const errors = [];
+
+    if (details.topic === "")
+      errors.push("Select a topic");
+
+    if (details.difficulty === "")
+      errors.push("Please select a difficulty");
+
+    if (details.players <= 0)
+      errors.push("Please select number of players greater than 0");
+
+    if (details.questions === "" || details.questions <= 0)
+      errors.push("Please select number of questions greater than 0");
+
+    if (username.trim() === "")
+      errors.push("Please select a username");
+
+    return errors;
+  };
+
+  const appendErrorsToDom = (errors) => {
+    setErrors(errors.map(err => <center>{err}</center>));
+  }
+
   // Handle Create Game Click
   const handleClick = (e) => {
     e.preventDefault();
+
+    const errors = validateInput();
+    if (errors.length)
+      return appendErrorsToDom(errors);
 
     socket.on("created", (roomId) => {
       history.push(`/game/${roomId}`);
@@ -57,9 +89,29 @@ const CreateRoom = () => {
     socket.emit("create", details);
   };
 
+  const usernameChangeHandler = (e) => {
+    setUsername(e.target.value);
+  };
+
   return (
     <div className="create-room">
       <img className="create-title-image" src={CreateTitle} alt="Create Game" />
+
+      <div className="create-room-errors">{errors.map(err => err)}</div>
+
+      <label className="input-form-field" htmlFor="questions-number">
+        Insert your username:
+      </label>
+      <input
+        className="input-form-field mb-3"
+        value={username}
+        id="username-field"
+        name="username"
+        type="text"
+        placeholder="Username.."
+        onChange={usernameChangeHandler}
+        required
+      />
 
       {/* User options for selecting a topic */}
       <Form.Select
@@ -98,6 +150,7 @@ const CreateRoom = () => {
       </label>
       <input
         className="input-form-field"
+        value={maxPlayers}
         id="players-number"
         type="number"
         name="players"

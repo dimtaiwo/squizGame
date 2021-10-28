@@ -45,11 +45,12 @@ export default function GameRoom() {
 
     const getLobbyUrl = () => {
         const url = window.location.href;
-        return url.replace("game", "lobby");
+        const st = url.replace("game", "join");
+        return st.replace(id, `?id=${id}`);
     };
 
     const handleClick = () => {
-        history.push(`/lobby/${id}`)
+        history.push(`/lobby/${id}`);
     }
 
     return (
