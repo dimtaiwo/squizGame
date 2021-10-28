@@ -128,8 +128,6 @@ const CreateRoom = () => {
         <option value="5">Celebrities</option>
         <option value="22">Geography</option>
       </Form.Select>
-      <br />
-      <br />
 
       {/* User options for selecting quiz difficulty */}
       <Form.Select
