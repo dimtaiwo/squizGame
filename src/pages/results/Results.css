@@ -44,3 +44,34 @@
     margin-top: 30px;
     font-size: 20px
 }
+
+@media screen and (max-width: 510px){
+    .Results{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    .results-title{
+        display: flex;
+        margin: 20px auto;
+        width: 200px;
+    }
+
+    .scores{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        
+    }
+
+    .three-guards{
+        width: 150px;
+    }
+
+    .lobby-message{
+        font-size: 16px;
+    }
+}

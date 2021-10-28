@@ -6,4 +6,16 @@
     border-radius: 17px;
     margin: 7px 0px;
     font-size: 25px;
+
+    text-align: center;
+}
+
+@media screen and (max-width: 510px){
+    .Result{
+        width: auto;
+        font-size: 15px;
+        white-space: nowrap;
+        padding: 5px;
+        width: 100%;
+    }
 }
