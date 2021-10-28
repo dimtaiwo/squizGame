@@ -66,7 +66,7 @@ export default function GameRoom() {
             <div className="display-questions">
                 {data && console.log(data["questions"])}
                 {/* <Link className="go-lobby" to={`/lobby/${id}`}>Go to Lobby</Link> */}
-                <button className="enter-lobby" onClick={handleClick}>Enter Lobby</button>
+                <button className="enter-lobby" onClick={handleClick}>Start Game</button>
                 {/* {data && data.questions.map((question) => (<p>{question.question}</p>))} */}
                 <img className="house-logo" src={InviteCard} alt="" width="100px" />
             </div>

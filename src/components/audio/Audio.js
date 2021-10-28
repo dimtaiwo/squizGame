@@ -14,7 +14,7 @@ const Audio = () => {
 
     return (
         <div className="audio">
-            <audio controls autoplay>
+            <audio role="audio" aria-label="audio" controls>
                 <source src={SquidAudio} type="audio/mp3" />
             </audio>
         </div>

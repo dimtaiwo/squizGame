@@ -2,7 +2,7 @@ import "./ScoreCard.css";
 
 export default function ScoreCard(props) {
     return (
-        <div className="Score-card" style={{ backgroundColor: "#016780", margin: 20 }}>
+        <div className="Score-card" role="score-card" aria-label="score-card" style={{ backgroundColor: "#016780", margin: 20 }}>
             <div className="rank">{props.rank}</div>
 
             <div className="name">{props.name}</div>

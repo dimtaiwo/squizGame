@@ -33,7 +33,7 @@ export default function RoundedButton(props) {
 
     return (
         <div className="Rounded-button">
-            <button onClick={clickHandler} style={styles}>{buttonText}</button>
+            <button aria-label="rounded-button" onClick={clickHandler} style={styles}>{buttonText}</button>
         </div>
     );
 };

@@ -6,7 +6,7 @@ import './title.css'
 const Title = () => {
   return (
     <div>
-      <img className="animated-title" src={squidAnimation} alt="SQUIZ GAME" />
+      <img aria-label="img" className="animated-title" src={squidAnimation} alt="SQUIZ GAME" />
     </div>
   );
 };

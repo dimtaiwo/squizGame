@@ -33,7 +33,7 @@ export default function ScoreFilter(props) {
     };
 
     return (
-        <div className="Score-filter">
+        <div className="Score-filter" role="score-filter" aria-label="score-filter">
             <div className="Score-filter-by">Filter by</div>
 
             <div className="Score-filter-topic">Topic</div>
