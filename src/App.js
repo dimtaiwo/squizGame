@@ -14,8 +14,6 @@ import { useContext, useState } from "react";
 import { SocketContext } from "./Context";
 import { io } from "socket.io-client";
 
-
-
 function App() {
   const [data, setData] = useState(["hello"]);
   const [socket, setSocket] = useState();
@@ -29,7 +27,7 @@ function App() {
   const [maxPlayers, setMaxPlayers] = useState(9999);
 
   if (!socket) {
-    const newSocket = io("http://localhost:4000/");
+    const newSocket = io("https://squiz-game.herokuapp.com");
 
     setSocket(newSocket);
   }
@@ -68,7 +66,6 @@ function App() {
           <Route render={() => <NotFound />} />
         </Switch>
       </SocketContext.Provider>
-
     </div>
   );
 }

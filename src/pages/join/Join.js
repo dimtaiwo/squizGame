@@ -7,18 +7,10 @@ import RoundedButton from "../../components/UI/roundedButton/RoundedButton";
 
 import "./Join.css";
 
-// import io from "socket.io-client";
-// import { Socket } from "socket.io";
-
 import { SocketContext } from "../../Context";
 
 export default function Join() {
-  const { socket, setSocket } = useContext(SocketContext);
-  const { data, setData } = useContext(SocketContext);
   const { username, setUsername } = useContext(SocketContext);
-
-  console.log(socket);
-  console.log(data);
 
   // Getting the room ID from the url
   const queryString = window.location.search;
@@ -34,7 +26,6 @@ export default function Join() {
   const usernameChangeHandler = (event) => {
     setUsername(event.target.value);
   };
-
 
   return (
     <div className="Join">

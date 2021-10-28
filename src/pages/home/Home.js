@@ -2,11 +2,10 @@ import Button from "../../components/UI/Button/Button";
 import Title from "../../components/UI/Title/Title";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import BackButton from "../../components/UI/BackButton/BackButton";
 import frontmanMask from "../../components/assets/fontman-mask.png";
 import "./Home.css";
 
-import Audio from "../../components/audio/Audio"
+import Audio from "../../components/audio/Audio";
 
 // Create the keyframes
 const rotate = keyframes`

@@ -1,113 +1,116 @@
-import { useContext, useState, useEffect } from 'react';
-import { SocketContext } from '../../Context';
-import { useParams, useHistory } from 'react-router-dom';
-import Question from '../../components/question/Question';
-import './LobbyRoom.css';
-
+import { useContext, useState, useEffect } from "react";
+import { SocketContext } from "../../Context";
+import { useParams, useHistory } from "react-router-dom";
+import Question from "../../components/question/Question";
+import "./LobbyRoom.css";
 
 const LobbyRoom = () => {
+  const { data, setData } = useContext(SocketContext);
+  const { socket, setSocket } = useContext(SocketContext);
+  const { points, setPoints } = useContext(SocketContext);
+  const { gameEnded, setGameEnded } = useContext(SocketContext);
+  const { lobbyId, setLobbyId } = useContext(SocketContext);
+  const { maxPlayers } = useContext(SocketContext);
 
-    const { data, setData } = useContext(SocketContext);
-    const { socket, setSocket } = useContext(SocketContext);
-    const { points, setPoints } = useContext(SocketContext);
-    const { gameEnded, setGameEnded } = useContext(SocketContext);
-    const { lobbyId, setLobbyId } = useContext(SocketContext);
-    const { maxPlayers } = useContext(SocketContext);
+  const { id } = useParams();
 
+  const [haveData, setHaveData] = useState(null);
 
-    const { id } = useParams();
+  const [questionIndex, setQuestionIndex] = useState(0);
 
-    const [haveData, setHaveData] = useState(null);
+  const history = useHistory();
 
-    const [questionIndex, setQuestionIndex] = useState(0);
+  const [roomFull, setRoomFull] = useState(false);
 
-    const history = useHistory();
+  useEffect(() => {
+    if (gameEnded) history.push("/results");
+  }, [gameEnded]);
 
-    const [roomFull, setRoomFull] = useState(false);
+  useEffect(() => {
+    socket.emit("getData", id);
 
+    socket.emit("join", [id, "asdsa"]);
 
-    useEffect(() => {
-        if (gameEnded)
-            history.push("/results");
-    }, [gameEnded])
+    socket.on("joined", async (socket, gameQuestions) => {
+      // setSocket(socket);
 
-    useEffect(() => {
+      setLobbyId(id);
 
-        socket.emit("getData", id);
+      if (gameQuestions) {
+        await setData(gameQuestions);
 
-        socket.emit("join", [id, "asdsa"]);
+        setHaveData(true);
+      } else {
+        setHaveData(false);
+      }
+    });
 
-        socket.on("joined", async (socket, gameQuestions) => {
-            // setSocket(socket);
-            console.log(gameQuestions);
+    socket.on("roomFull", (d) => {
+      // IF THE ROOM IS FULL WE WILL KNOW
+      setRoomFull(true);
+    });
+  }, []);
 
-            setLobbyId(id);
+  const getQuestionWithIndex = () => {
+    return data.questions[questionIndex].question;
+  };
 
-            if (gameQuestions) {
-                // console.log(gameQuestions);
-                await setData(gameQuestions);
-                console.log("Joined the room " + socket);
-                setHaveData(true);
-            } else {
-                setHaveData(false);
-            }
-        });
+  const getAnswerWithIndex = () => {
+    const arr = [
+      data.questions[questionIndex].correct_answer,
+      ...data.questions[questionIndex].incorrect_answers,
+    ];
 
-        socket.on("roomFull", (d) => {
-            // IF THE ROOM IS FULL WE WILL KNOW
-            console.log("The room is full with " + d + " members");
-            setRoomFull(true);
-        });
+    return arr;
+  };
 
-    }, []);
+  const registerAnswer = (answer) => {
+    if (gameEnded) return;
 
-    const getQuestionWithIndex = () => {
-        return data.questions[questionIndex].question
-    };
+    // DEBUG
 
-    const getAnswerWithIndex = () => {
-        const arr = [
-            data.questions[questionIndex].correct_answer,
-            ...data.questions[questionIndex].incorrect_answers
-        ];
+    if (
+      questionIndex <= data.questions.length &&
+      answer === data.questions[questionIndex].correct_answer
+    )
+      setPoints((prevPoints) => prevPoints + 3);
 
-        return arr;
-    };
+    if (questionIndex === data.questions.length - 1) {
+      setGameEnded(true);
+    } else {
+      setQuestionIndex((prevIndex) => prevIndex + 1);
+    }
+  };
 
-    const registerAnswer = (answer) => {
-        if (gameEnded)
-            return;
+  return (
+    <div className="Lobby">
+      <h2 className="lobby-room-title">
+        This is the LOBBY room page for id {id}
+      </h2>
 
-        // DEBUG
-        console.log("The correct_answer is: " + data.questions[questionIndex].correct_answer);
-        console.log("The given_answer is: " + answer);
+      {haveData && (
+        <Question
+          question={getQuestionWithIndex()}
+          answers={getAnswerWithIndex()}
+          registerAnswer={registerAnswer}
+        />
+      )}
 
-        if (questionIndex <= data.questions.length && answer === data.questions[questionIndex].correct_answer)
-            setPoints(prevPoints => prevPoints + 3);
+      {haveData == false ? (
+        <center>
+          <h1 style={{ color: "red" }}>The lobby does not exist</h1>
+        </center>
+      ) : (
+        ""
+      )}
 
-        if (questionIndex === data.questions.length - 1) {
-            setGameEnded(true);
-        } else {
-            setQuestionIndex(prevIndex => prevIndex + 1);
-        }
-    };
-
-    return (
-        <div className="Lobby">
-            <h2 className="lobby-room-title">This is the LOBBY room page for id {id}</h2>
-            {/* {haveData && data.questions.map((question) => (<p dangerouslySetInnerHTML={{ __html: question.question }}></p>))} */}
-
-            {/* {haveData && console.log(data.questions)} */}
-            {haveData && <Question question={getQuestionWithIndex()} answers={getAnswerWithIndex()} registerAnswer={registerAnswer} />}
-
-            {/* {haveData && console.log(data.questions)} */}
-
-            {haveData == false ? <center><h1 style={{ color: 'red' }}>The lobby does not exist</h1></center> : ""}
-
-            {roomFull && <center><h1 style={{ color: 'red' }}>This lobby is full!!</h1></center>}
-
-        </div>
-    );
+      {roomFull && (
+        <center>
+          <h1 style={{ color: "red" }}>This lobby is full!!</h1>
+        </center>
+      )}
+    </div>
+  );
 };
 
 export default LobbyRoom;
