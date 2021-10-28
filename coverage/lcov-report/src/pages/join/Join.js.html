@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/pages/gameRoom/GameRoom.js</title>
+    <title>Code coverage report for src/pages/join/Join.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/pages/gameRoom</a> GameRoom.js</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/pages/join</a> Join.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
@@ -136,7 +136,11 @@
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,28 +157,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -187,10 +172,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,85 +196,107 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect, useContext } from "react";
-import { NavLink, useParams, useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useContext } from "react";
 &nbsp;
-import QRCode from "react-qr-code";
+import Particles from "react-particles-js";
+import particlesConfig from "../../config/particlesConfig";
+&nbsp;
+import RoundedButton from "../../components/UI/roundedButton/RoundedButton";
+&nbsp;
+import "./Join.css";
+&nbsp;
+// import io from "socket.io-client";
+// import { Socket } from "socket.io";
 &nbsp;
 import { SocketContext } from "../../Context";
 &nbsp;
-import "./GameRoom.css";
-import InviteCard from "../../components/assets/custom-squid-game-card-logo.png"
+export default function <span class="fstat-no" title="function not covered" >Join(</span>) {
+  const { socket, setSocket } = <span class="cstat-no" title="statement not covered" >useContext(SocketContext);</span>
+  const { data, setData } = <span class="cstat-no" title="statement not covered" >useContext(SocketContext);</span>
+  const { setUsername } = <span class="cstat-no" title="statement not covered" >useContext(SocketContext);</span>
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >GameRoom(</span>) {
-<span class="cstat-no" title="statement not covered" >    console.log("socket in local storage is " + localStorage.getItem("socketId"));</span>
-    const { socket, setSocket } = <span class="cstat-no" title="statement not covered" >useContext(SocketContext);</span>
-    const { data, setData } = <span class="cstat-no" title="statement not covered" >useContext(SocketContext);</span>
+<span class="cstat-no" title="statement not covered" >  console.log(socket);</span>
+<span class="cstat-no" title="statement not covered" >  console.log(data);</span>
 &nbsp;
-    const history = <span class="cstat-no" title="statement not covered" >useHistory();</span>
+  const [roomId, setRoomId] = <span class="cstat-no" title="statement not covered" >useState(socket.id);</span>
 &nbsp;
-    const { id } = <span class="cstat-no" title="statement not covered" >useParams();</span>
-<span class="cstat-no" title="statement not covered" >    console.log(useParams());</span>
-<span class="cstat-no" title="statement not covered" >    console.log(id);</span>
+  const inputChangeHandler = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(event.target.value);</span>
+<span class="cstat-no" title="statement not covered" >    setRoomId(event.target.value);</span>
+  };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        socket.emit("join", id);</span>
-<span class="cstat-no" title="statement not covered" >        console.log(id);</span>
+  const usernameChangeHandler = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(event.target.value);</span>
+<span class="cstat-no" title="statement not covered" >    setUsername(event.target.value);</span>
+  };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        socket.on("joined", <span class="fstat-no" title="function not covered" >(s</span>ocket) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            console.log("Joined the room " + socket);</span>
-        });
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div className="Join"&gt;
+      &lt;Particles
+        className="particles"
+        height="100vh"
+        params={particlesConfig}
+      /&gt;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        socket.on("receiveData", <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            console.log(data);</span>
-<span class="cstat-no" title="statement not covered" >            setData(data);</span>
-        });
+      &lt;div className="Join-form container-fluid"&gt;
+        &lt;div className="row justify-content-center"&gt;
+          &lt;div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7"&gt;
+            &lt;input
+              placeholder="Username.."
+              onChange={usernameChangeHandler}
+              type="text"
+            /&gt;
+          &lt;/div&gt;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        socket.emit("getData", id);</span>
-    }, []);
+          &lt;div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 py-3"&gt;
+            &lt;input
+              placeholder="Room ID.."
+              onChange={inputChangeHandler}
+              type="text"
+            /&gt;
+          &lt;/div&gt;
 &nbsp;
-    // const { id } = useParams();
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    socket.on("sendQuestions", <span class="fstat-no" title="function not covered" >(q</span>uestionsReceived) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        console.log(questionsReceived);</span>
-<span class="cstat-no" title="statement not covered" >        setData(questionsReceived);</span>
-    });
-&nbsp;
-    const getLobbyUrl = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-        const url = <span class="cstat-no" title="statement not covered" >window.location.href;</span>
-<span class="cstat-no" title="statement not covered" >        return url.replace("game", "lobby");</span>
-    };
-&nbsp;
-    const handleClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        history.push(`/lobby/${id}`)</span>
-    }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
-        &lt;div className="Game-room"&gt;
-            &lt;h2 className="game-room-title"&gt;
-                This is the game room page for id {id}
-            &lt;/h2&gt;
-&nbsp;
-&nbsp;
-            &lt;div className="invitation-qr"&gt;
-                &lt;QRCode className="qr-code" value={getLobbyUrl()} /&gt;
-            &lt;/div&gt;
-&nbsp;
-            &lt;div className="display-questions"&gt;
-                {data &amp;&amp; console.log(data["questions"])}
-                {/* &lt;Link className="go-lobby" to={`/lobby/${id}`}&gt;Go to Lobby&lt;/Link&gt; */}
-                &lt;button className="enter-lobby" onClick={handleClick}&gt;Start Game&lt;/button&gt;
-                {/* {data &amp;&amp; data.questions.map((question) =&gt; (&lt;p&gt;{question.question}&lt;/p&gt;))} */}
-                &lt;img className="house-logo" src={InviteCard} alt="" width="100px" /&gt;
-            &lt;/div&gt;
+          &lt;div className="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 join-buttons"&gt;
+            &lt;RoundedButton
+              text="Home"
+              styles={{ backgroundColor: "rgba(0, 0, 0, 0.26)" }}
+            /&gt;
+            {/* &lt;button text="Emit Join" onClick={joinHandler}&gt;Handle Join&lt;/button&gt; */}
+            &lt;RoundedButton
+              id="join-room-button"
+              text="Join Room"
+              styles={{ backgroundColor: "#ee4872c0" }}
+              onClickPath={`/lobby/${roomId}`}
+            /&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-    );
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
 }
 &nbsp;
-// CHECK IF ROOM WAS STARTED
-// IF NOT DISPLAY ROOM DOES NOT EXIST AND DISPLAY BUTTON FOR REDIRECTION TO HOME / CREATE / JOIN
-// IF YES, DISPLAY QUESTIONS, MAYBE TIMER, BUTTONS TO ANSWER, FEEDBACK ON ANSWER SUBMIT
+// JUST  A FORM TO REDIRECT TO gameRoom with the specific ID
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
