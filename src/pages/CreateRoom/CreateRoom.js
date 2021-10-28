@@ -18,6 +18,7 @@ const CreateRoom = () => {
   const { socket, setSocket } = useContext(SocketContext);
   const { maxPlayers, setMaxPlayers } = useContext(SocketContext);
   const { data, setData } = useContext(SocketContext);
+  const { setUsername } = useContext(SocketContext);
 
   useEffect(() => {
     socket.on("created", (roomId) => {
@@ -57,9 +58,26 @@ const CreateRoom = () => {
     socket.emit("create", details);
   };
 
+  const usernameChangeHandler = (e) => {
+    setUsername(e.target.value);
+  };
+
   return (
     <div className="create-room">
       <img className="create-title-image" src={CreateTitle} alt="Create Game" />
+
+      <label className="input-form-field" htmlFor="questions-number">
+        Insert your username:
+      </label>
+      <input
+        className="input-form-field mb-3"
+        id="username-field"
+        name="username"
+        type="text"
+        placeholder="Username.."
+        onChange={usernameChangeHandler}
+        required
+      />
 
       {/* User options for selecting a topic */}
       <Form.Select
