@@ -1,0 +1,9 @@
+.Result {
+    position: relative;
+    background-color: #016780;
+    color: white;
+    padding: 10px 0px;
+    border-radius: 17px;
+    margin: 7px 0px;
+    font-size: 25px;
+}
