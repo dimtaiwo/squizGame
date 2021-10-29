@@ -10,11 +10,14 @@
     text-align: center;
 }
 
+.Result samp{
+    padding: 0px 15px;
+}
+
 @media screen and (max-width: 510px){
     .Result{
         width: auto;
         font-size: 15px;
-        white-space: nowrap;
         padding: 5px;
         width: 100%;
     }
