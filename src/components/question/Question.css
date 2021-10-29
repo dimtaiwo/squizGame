@@ -17,6 +17,9 @@
 
 @media screen and (max-width: 500px){
     .Question h1{
-        font-size: 16px;
+        font-size: 15px;
+        width: 90%;
+        text-align: center;
+        align-self: center;
     }
 }
