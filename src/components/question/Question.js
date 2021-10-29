@@ -32,7 +32,7 @@ export default function Question(props) {
       <h1 dangerouslySetInnerHTML={{ __html: props.question }}></h1>
 
       {shuffledQuestions.map((answer) => (
-        <button onClick={() => props.registerAnswer(answer)}>{answer}</button>
+        <button onClick={() => props.registerAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>
       ))}
     </div>
   );
