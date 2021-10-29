@@ -21,7 +21,16 @@ export default function Results() {
 
   useEffect(() => {
     socket.on("updatedResults", (results) => {
-      setCurrentScores(results);
+
+      const sortFunction = (a, b) => {
+        if (+a.points > +b.points) return -1;
+
+        if (+a.points < +b.points) return 1;
+
+        return 0;
+      };
+
+      setCurrentScores(results.sort(sortFunction));
     });
 
     socket.emit("result", {
