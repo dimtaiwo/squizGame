@@ -19,7 +19,7 @@ export default function GameRoom() {
   useEffect(() => {
     socket.emit("join", id);
 
-    socket.on("joined", (socket) => {});
+    socket.on("joined", (socket) => { });
 
     socket.on("receiveData", (data) => {
       setData(data);
@@ -33,9 +33,10 @@ export default function GameRoom() {
   });
 
   const getLobbyUrl = () => {
-    const url = window.location.href;
-    const st = url.replace("game", "join");
-    return st.replace(id, `?id=${id}`);
+    // const url = window.location.href;
+    // const st = url.replace("game", "join");
+    // return st.replace(id, `?id=${id}`);
+    return `https://squiz-game.netlify.app/join?id=${id}`
   };
 
   const handleClick = () => {
